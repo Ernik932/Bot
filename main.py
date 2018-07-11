@@ -20,4 +20,4 @@ for event in longpoll.listen():
         user_id = event.user_id
         user_text = event.text.lower().strip()
         print(user_id, user_text)
-        vk.get_api().messages.send(user_id=user_id, message="Вы написали %s" % user_text)
+        vk.get_api().messages.send(user_id=user_id, message="Ваше сообщение: %s" % user_text)
