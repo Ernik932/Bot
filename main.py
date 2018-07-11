@@ -12,12 +12,12 @@ longpoll = VkLongPoll(vk)
 
 values = {'out': 0,'count': 100,'time_offset': 60}
 
-def write_msg(user_id, s):
-    vk.method('messages.send', {'user_id':user_id,'message':s})
+def write_msg(user_id, message):
+    vk.method('messages.send', {'user_id':user_id,'message':message})
 
 for event in longpoll.listen():
     if (event.type == VkEventType.MESSAGE_NEW) and (event.to_me):
         user_id = event.user_id
         user_text = event.text.lower().strip()
         print(user_id, user_text)
-        vk.get_api().messages.send(user_id=user_id, message="Ваше сообщение: %s" % user_text)
+        write_msg(user_id, "Ваше сообщение: %s" % user_text)
