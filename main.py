@@ -16,7 +16,9 @@ values = {'out': 0,'count': 100,'time_offset': 60}
 
 # Таблица, которая устанавливает соотношение между текстом команд и функциями, исполняемыми при их введении
 COMMAND_DISPATCH_TABLE = {
-    "профиль" : commands.profile
+    "профиль" : commands.profile,
+    "меню" : commands.menu
+    ""
 }
 
 def write_msg(user_id, message):
